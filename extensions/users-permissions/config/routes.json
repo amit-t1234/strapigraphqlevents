@@ -1,0 +1,19 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/users/otp/send",
+      "handler": "User.sendOtp",
+      "config": {
+        "policies": [],
+        "prefix": "",
+        "description": "Send OTP to the phone number",
+        "tag": {
+          "plugin": "users-permissions",
+          "name": "User",
+          "actionType": "sendOtp"
+        }
+      }
+    }
+  ]
+}

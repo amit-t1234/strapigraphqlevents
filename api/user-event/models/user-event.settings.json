@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invites",
+  "info": {
+    "name": "Invite",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "event": {
+      "columnName": "invited",
+      "targetColumnName": "events",
+      "via": "user_events",
+      "model": "event"
+    },
+    "users_permissions_user": {
+      "columnName": "shared",
+      "targetColumnName": "invites",
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "user_events"
+    }
+  }
+}

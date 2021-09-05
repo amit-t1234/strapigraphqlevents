@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "name": "Event",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 3
+    },
+    "description": {
+      "type": "richtext",
+      "required": true,
+      "minLength": 3
+    },
+    "user_events": {
+      "via": "event",
+      "columnName": "events",
+      "collection": "user-event"
+    },
+    "users_permissions_user": {
+      "columnName": "ownedEvents",
+      "targetColumnName": "ownedBy",
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "events"
+    }
+  }
+}
