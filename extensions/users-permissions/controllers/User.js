@@ -73,9 +73,11 @@ module.exports = {
       return ctx.badRequest(null, [{ messages: [{ id: 'No authorization header was found' }] }]);
     }
 
-    let data = await strapi.query('user', 'users-permissions').find({ id: user.id }); // added restaurants
-    data.password = undefined;
+    let data = (await strapi.query('user', 'users-permissions').find({ id: user.id }))[0]; // added restaurants
 
+    console.log(data)
+    data.username = undefined;
+    data.password = undefined;
     ctx.body = data;
   },
 
